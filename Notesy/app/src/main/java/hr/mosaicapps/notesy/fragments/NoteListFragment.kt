@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import hr.mosaicapps.notesy.R
+
 import hr.mosaicapps.notesy.data.NotesRepository
 import hr.mosaicapps.notesy.databinding.FragmentNoteListBinding
 import hr.mosaicapps.notesy.databinding.ItemNoteBinding
@@ -17,7 +18,7 @@ import hr.mosaicapps.notesy.model.Note
 
 class NoteListFragment : Fragment() {
 
-    lateinit var binding: FragmentNoteListBinding
+    lateinit var fragmentBinding: FragmentNoteListBinding
     val repository = NotesRepository
 
     override fun onCreateView(
@@ -25,20 +26,20 @@ class NoteListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentNoteListBinding.inflate(
+        fragmentBinding = FragmentNoteListBinding.inflate(
             inflater, container, false
         )
-        binding.rvNotes.layoutManager = LinearLayoutManager(
+        fragmentBinding.rvNotes.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.VERTICAL,
             false
         )
-        binding.rvNotes.adapter = NotesAdapter(repository.getNotes())
-        return binding.root
+        fragmentBinding.rvNotes.adapter = NotesAdapter(repository.getNotes())
+        return fragmentBinding.root
     }
 
-    companion object{
-        fun create(): NoteListFragment{
+    companion object {
+        fun create(): NoteListFragment {
             return NoteListFragment()
         }
     }
@@ -46,11 +47,11 @@ class NoteListFragment : Fragment() {
     inner class NotesAdapter(
         private val notes: List<Note>
     ) :
-        RecyclerView.Adapter<NotesViewHolder>(){
+        RecyclerView.Adapter<NotesViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_note, parent,false)
+                .inflate(R.layout.item_note, parent, false)
             return NotesViewHolder(view)
         }
 
@@ -65,12 +66,13 @@ class NoteListFragment : Fragment() {
     }
 
     inner class NotesViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView){
+        RecyclerView.ViewHolder(itemView) {
         fun bind(note: Note) {
-            val binding = ItemNoteBinding.bind(itemView)
-            binding.tvNoteItemTitle.text = note.title
-            binding.ivNoteItemImportance.setBackgroundResource(
-                getColorResource(note.importance))
+            val itemBinding = ItemNoteBinding.bind(itemView)
+            itemBinding.tvNoteItemTitle.text = note.title
+            itemBinding.ivNoteItemImportance.setBackgroundResource(
+                getColorResource(note.importance)
+            )
         }
     }
 }
