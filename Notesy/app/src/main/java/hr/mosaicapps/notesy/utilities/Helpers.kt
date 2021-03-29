@@ -1,4 +1,4 @@
-package hr.mosaicapps.notesy.helpers
+package hr.mosaicapps.notesy.utilities
 
 import hr.mosaicapps.notesy.R
 

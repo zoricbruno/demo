@@ -1,41 +1,46 @@
 package hr.mosaicapps.notesy.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import hr.mosaicapps.notesy.databinding.FragmentNoteDetailsBinding
-import hr.mosaicapps.notesy.helpers.getColorResource
+import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener
+import hr.mosaicapps.notesy.utilities.getColorResource
 import hr.mosaicapps.notesy.model.Note
 
 class NoteDetailsFragment : Fragment() {
 
-    lateinit var binding: FragmentNoteDetailsBinding
+    lateinit var noteDetailsBinding: FragmentNoteDetailsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentNoteDetailsBinding.inflate(
+    ): View {
+        noteDetailsBinding = FragmentNoteDetailsBinding.inflate(
             inflater,
             container,
             false
         )
-        val  note = arguments!!.getSerializable(KEY_NOTE) as Note
 
-        binding.tvNoteTitle.text = note.title
-        binding.ivNoteImportance.setBackgroundResource(
-            getColorResource(note.importance))
-        binding.tvNoteDescription.text = note.description
+        arguments?.let {
+            val note = it.getSerializable(KEY_NOTE) as Note
+            noteDetailsBinding.tvNoteTitle.text = note.title
+            noteDetailsBinding.ivNoteImportance.setBackgroundResource(
+                getColorResource(note.importance))
+            noteDetailsBinding.tvNoteDescription.text = note.description
+        }
 
-        return binding.root
+        return noteDetailsBinding.root
     }
 
     companion object{
 
-        private const val KEY_NOTE = "note"
+        const val TAG = "Details"
+        private const val KEY_NOTE = "Note"
 
         fun create(note: Note): NoteDetailsFragment {
             val args = Bundle()

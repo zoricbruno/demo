@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Notesy</string>
+    <string name="text_noteImportance_contentDescription">Importance of the note</string>
 </resources>
