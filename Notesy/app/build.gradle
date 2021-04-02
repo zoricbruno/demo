@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -44,6 +45,7 @@ dependencies {
     def junitVersion = "4.13.2"
     def espressoVersion = "3.3.0"
     def androidxJunitTestVersion = "1.1.2"
+    def roomVersion = "2.2.6"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$ktxVersion"
@@ -53,4 +55,8 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitTestVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+
 }

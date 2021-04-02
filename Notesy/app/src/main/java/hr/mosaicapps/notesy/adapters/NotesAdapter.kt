@@ -15,10 +15,10 @@ class NotesAdapter(
 
     private val  notes: MutableList<Note> = mutableListOf()
     init{
-        update(notes)
+        refreshData(notes)
     }
 
-    private fun update(notes: List<Note>) {
+    public fun refreshData(notes: List<Note>) {
         this.notes.clear()
         this.notes.addAll(notes)
         this.notifyDataSetChanged()
