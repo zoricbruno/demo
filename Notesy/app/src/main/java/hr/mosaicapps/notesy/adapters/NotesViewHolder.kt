@@ -11,6 +11,7 @@ class NotesViewHolder(itemView: View) :
     fun bind(note: Note) {
         val itemBinding = ItemNoteBinding.bind(itemView)
         itemBinding.tvNoteItemTitle.text = note.title
+        itemBinding.tvNoteItemDetails.text = note.details
         itemBinding.ivNoteItemImportance.setBackgroundResource(
             getColorResource(note.priority)
         )
