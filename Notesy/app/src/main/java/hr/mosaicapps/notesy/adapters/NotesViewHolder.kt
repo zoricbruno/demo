@@ -1,4 +1,4 @@
-package hr.mosaicapps.notesy.adapter
+package hr.mosaicapps.notesy.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +12,7 @@ class NotesViewHolder(itemView: View) :
         val itemBinding = ItemNoteBinding.bind(itemView)
         itemBinding.tvNoteItemTitle.text = note.title
         itemBinding.ivNoteItemImportance.setBackgroundResource(
-            getColorResource(note.importance)
+            getColorResource(note.priority)
         )
     }
 }

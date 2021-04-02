@@ -1,13 +1,11 @@
 package hr.mosaicapps.notesy.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import hr.mosaicapps.notesy.databinding.FragmentNoteDetailsBinding
-import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener
 import hr.mosaicapps.notesy.utilities.getColorResource
 import hr.mosaicapps.notesy.model.Note
 
@@ -29,9 +27,9 @@ class NoteDetailsFragment : Fragment() {
         arguments?.let {
             val note = it.getSerializable(KEY_NOTE) as Note
             noteDetailsBinding.tvNoteTitle.text = note.title
-            noteDetailsBinding.ivNoteImportance.setBackgroundResource(
-                getColorResource(note.importance))
-            noteDetailsBinding.tvNoteDescription.text = note.description
+            noteDetailsBinding.ivNotePriority.setBackgroundResource(
+                getColorResource(note.priority))
+            noteDetailsBinding.tvNoteDetails.text = note.details
         }
 
         return noteDetailsBinding.root

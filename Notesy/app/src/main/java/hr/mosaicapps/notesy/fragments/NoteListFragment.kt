@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import hr.mosaicapps.notesy.adapter.NotesAdapter
+import hr.mosaicapps.notesy.adapters.NotesAdapter
 import hr.mosaicapps.notesy.data.NotesRepository
 import hr.mosaicapps.notesy.databinding.FragmentNoteListBinding
 import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener

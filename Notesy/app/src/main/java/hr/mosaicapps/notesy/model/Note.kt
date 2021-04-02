@@ -4,6 +4,6 @@ import java.io.Serializable
 
 data class Note(
     val title: String,
-    val description: String,
-    val importance: Int
+    val details: String,
+    val priority: Int
 ) : Serializable

@@ -1,4 +1,4 @@
-package hr.mosaicapps.notesy.adapter
+package hr.mosaicapps.notesy.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,10 +8,21 @@ import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener
 import hr.mosaicapps.notesy.model.Note
 
 class NotesAdapter(
-    private val notes: List<Note>,
+    notes: List<Note>,
     private val listener: OnNoteSelectedListener
 ) :
     RecyclerView.Adapter<NotesViewHolder>() {
+
+    private val  notes: MutableList<Note> = mutableListOf()
+    init{
+        update(notes)
+    }
+
+    private fun update(notes: List<Note>) {
+        this.notes.clear()
+        this.notes.addAll(notes)
+        this.notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val view = LayoutInflater.from(parent.context)

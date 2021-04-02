@@ -13,7 +13,7 @@ object NotesRepository {
     )
 
     fun getNotes(): List<Note> = notes
-    fun insert(note: Note) = notes.add(note)
-    fun remove(note: Note) = notes.remove(note)
     fun getNote(title: String): Note = notes.first { it -> it.title == title }
+    fun insert(note: Note) = notes.add(note)
+    fun delete(note: Note) = notes.remove(note)
 }
