@@ -1,5 +1,6 @@
-package hr.mosaicapps.notesy.persistence
+package hr.mosaicapps.notesy.data.database
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import hr.mosaicapps.notesy.model.Note
 
@@ -7,7 +8,7 @@ import hr.mosaicapps.notesy.model.Note
 interface NoteDao {
 
     @Query("SELECT * FROM notes")
-    fun getNotes(): List<Note>
+    fun getNotes(): LiveData<List<Note>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(note: Note)

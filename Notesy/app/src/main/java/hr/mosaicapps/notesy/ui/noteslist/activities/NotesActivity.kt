@@ -1,26 +1,27 @@
-package hr.mosaicapps.notesy.activities
+package hr.mosaicapps.notesy.ui.noteslist.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import hr.mosaicapps.notesy.R
-import hr.mosaicapps.notesy.databinding.ActivityMainBinding
-import hr.mosaicapps.notesy.fragments.NoteDetailsFragment
-import hr.mosaicapps.notesy.fragments.NoteListFragment
-import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener
+import hr.mosaicapps.notesy.databinding.ActivityNotesBinding
+import hr.mosaicapps.notesy.ui.noteslist.fragments.NoteDetailsFragment
+import hr.mosaicapps.notesy.ui.noteslist.fragments.NoteListFragment
+import hr.mosaicapps.notesy.ui.noteslist.OnNoteSelectedListener
 import hr.mosaicapps.notesy.model.Note
+import hr.mosaicapps.notesy.ui.newnote.activities.NewNoteActivity
 
-class MainActivity
+class NotesActivity
     : AppCompatActivity(), OnNoteSelectedListener {
 
-    private lateinit var mainBinding: ActivityMainBinding
+    private lateinit var binding: ActivityNotesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mainBinding = ActivityMainBinding.inflate(layoutInflater)
-        mainBinding.fabAddNote.setOnClickListener{createNewNote()}
-        setContentView(mainBinding.root)
+        binding = ActivityNotesBinding.inflate(layoutInflater)
+        binding.fabAddNote.setOnClickListener{createNewNote()}
+        setContentView(binding.root)
 
         if(savedInstanceState == null){
             supportFragmentManager.beginTransaction()

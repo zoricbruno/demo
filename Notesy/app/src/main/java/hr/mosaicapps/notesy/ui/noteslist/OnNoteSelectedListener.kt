@@ -1,4 +1,4 @@
-package hr.mosaicapps.notesy.listeners
+package hr.mosaicapps.notesy.ui.noteslist
 
 import hr.mosaicapps.notesy.model.Note
 

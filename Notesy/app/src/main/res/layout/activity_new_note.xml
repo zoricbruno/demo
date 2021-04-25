@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_medium"
-    tools:context=".activities.NewNoteActivity">
+    tools:context=".ui.newnote.activities.NewNoteActivity">
 
     <TextView
         android:id="@+id/tv_newNote_header"

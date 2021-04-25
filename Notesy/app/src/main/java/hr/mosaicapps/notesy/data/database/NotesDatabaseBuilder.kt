@@ -1,4 +1,4 @@
-package hr.mosaicapps.notesy.persistence
+package hr.mosaicapps.notesy.data.database
 
 import androidx.room.Room
 import hr.mosaicapps.notesy.Notesy

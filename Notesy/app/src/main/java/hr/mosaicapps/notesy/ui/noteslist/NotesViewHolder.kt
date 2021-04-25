@@ -1,9 +1,9 @@
-package hr.mosaicapps.notesy.adapters
+package hr.mosaicapps.notesy.ui.noteslist
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import hr.mosaicapps.notesy.databinding.ItemNoteBinding
-import hr.mosaicapps.notesy.utilities.getColorResource
+import hr.mosaicapps.notesy.utilities.mapPriorityToColorResource
 import hr.mosaicapps.notesy.model.Note
 
 class NotesViewHolder(itemView: View) :
@@ -13,7 +13,7 @@ class NotesViewHolder(itemView: View) :
         itemBinding.tvNoteItemTitle.text = note.title
         itemBinding.tvNoteItemDetails.text = note.details
         itemBinding.ivNoteItemImportance.setBackgroundResource(
-            getColorResource(note.priority)
+            mapPriorityToColorResource(note.priority)
         )
     }
 }

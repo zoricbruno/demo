@@ -1,10 +1,9 @@
-package hr.mosaicapps.notesy.adapters
+package hr.mosaicapps.notesy.ui.noteslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hr.mosaicapps.notesy.R
-import hr.mosaicapps.notesy.listeners.OnNoteSelectedListener
 import hr.mosaicapps.notesy.model.Note
 
 class NotesAdapter(
